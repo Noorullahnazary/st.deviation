@@ -17,7 +17,7 @@ public class StDeviation {
     //         private int[] Data = new int[ProjConstants.MAXDATA];
     //
     private int[] Data = new int[MAXDATA];
-    StDeviation calcSDev =  new StDeviation();
+    int itemCounter;
 
     // ---------*---------*---------*---------*---------*---------*---------*---------*
     // The following method will take a new data item and add it into the 1 Dimensional
@@ -25,10 +25,9 @@ public class StDeviation {
     //
     // You MUST write this method and I will use it during testing
     //
-    public void addNewDataItem(double dataItem){
-        int someInteger = 0;
-        calcSDev.addNewDataItem(someInteger);
-
+    public void addNewDataItem(int dataItem){
+        Data[itemCounter] = dataItem;
+        itemCounter++;
 
     }
 
@@ -40,7 +39,7 @@ public class StDeviation {
     public int getNumberOfDataItems(){
 
         // temporary value
-        return INVALID;
+        return itemCounter;
     }
 
     // ---------*---------*---------*---------*---------*---------*---------*---------*
@@ -69,7 +68,10 @@ public class StDeviation {
     //
     public double calcVariance(){
 
-         = calcSDev.calcVariance();
+        boolean done = false;
+        int total = 0;
+
+
         // temporary value
         return INVALID;
     }
@@ -83,7 +85,7 @@ public class StDeviation {
     //
     public double calcStandardDeviation(){
 
-        StDeviation = calcSDev.calcStandardDeviation();
+
         // temporary value
         return INVALID;
     }

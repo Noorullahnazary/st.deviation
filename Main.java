@@ -6,28 +6,28 @@ import java.util.Scanner;
 import java.util.*;
 import java.io.*;
 import java.io.FileNotFoundException;
+import java.util.concurrent.ForkJoinPool;
 
 public class Main {
     public static void main(String[] args) {
 	// write your code here
-        String userInput;
+        String userInput = "";
         System.out.println("Please type in something to display");
-        Scanner s = new Scanner(System.in);
-        userInput = s.next();
         int someInteger= 0;
-        int[] Datainfo = new int[MAXDATA];
+        StDeviation calcSDev =  new StDeviation();
         int itemCount;
         double average;
         double total;
-        JOptionPane.getFrameForComponent(MAXDATA);
+        userInput = JOptionPane.showInputDialog("Enter name of file here");
         System.out.println("The user input: " + userInput);
         try {
             itemCount = 0;
             average = 0;
             total = 0;
-            File t = new File("tempfilesnums.txt");
-            File userFile = new File("tempfilesnums.txt");
+
+            File userFile = new File(userInput+".txt");
             Scanner scanUserFile = new Scanner(userFile);
+
 
             // ---------------------------------------------
             // Reads in values from the file in a for loop
@@ -41,10 +41,10 @@ public class Main {
                 //
 
                 if (scanUserFile.hasNext()) {
-                    Datainfo[itemCount] = scanUserFile.nextInt();
-                    total = total + Datainfo[someInteger];
-                    System.out.print(" - " + Datainfo);
-                    itemCount++;
+                     calcSDev.addNewDataItem(scanUserFile.nextInt());
+
+
+
                 }
                 else {
                     // ---------------------------------------------
